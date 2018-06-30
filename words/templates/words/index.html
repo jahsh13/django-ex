@@ -1,0 +1,8 @@
+{% load static %}
+
+<form action="{% url 'words:results' %}" method="post">
+    {% csrf_token %}
+    <p>Enter string of letters to use.</p>
+    <input type="text" name="letters" id="letters"/>
+    <input type="submit" value="Generate Word List"/>
+</form>

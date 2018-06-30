@@ -1,0 +1,14 @@
+<h1>Word List</h1>
+
+{% if word_list %}
+<p>Words created from {{ letters }}:</p>
+<ul>
+    {% for word in word_list %}
+    <li>{{ word }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No words could be created from letter list.</p>
+{% endif %}
+
+<a href="{% url 'words:index' %}">Generate new word list?</a>

@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^$', index),
     url(r'^health$', health),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^polls/', include('polls.urls'))
+    url(r'^polls/', include('polls.urls')),
+    url(r'^words/', include('words.urls'))
 ]
 
 if settings.DEBUG:
