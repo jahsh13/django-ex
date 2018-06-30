@@ -1,8 +1,13 @@
-{% load static %}
+{% extends "base_generic.html" %}
 
-<form action="{% url 'words:results' %}" method="post">
-    {% csrf_token %}
-    <p>Enter string of letters to use.</p>
-    <input type="text" name="letters" id="letters"/>
-    <input type="submit" value="Generate Word List"/>
-</form>
+{% block content %}
+<h1>Word Generator</h1>
+<p>
+    <form action="{% url 'words:results' %}" method="post">
+        {% csrf_token %}
+        <p>Enter string of letters to use.</p>
+        <input type="text" name="letters" id="letters"/>
+        <input type="submit" value="Generate Word List"/>
+    </form>
+</p>
+{% endblock %}

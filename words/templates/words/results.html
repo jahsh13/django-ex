@@ -1,3 +1,6 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
 <h1>Word List</h1>
 
 {% if word_list %}
@@ -12,3 +15,5 @@
 {% endif %}
 
 <a href="{% url 'words:index' %}">Generate new word list?</a>
+
+{% endblock %}
