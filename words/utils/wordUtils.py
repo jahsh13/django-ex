@@ -1,4 +1,7 @@
 import itertools
+
+from django.db.models.functions import Lower
+
 from words.models import Words
 
 def parse_word(word):
@@ -41,11 +44,11 @@ def get_word_list(letters):
         hashed_word = ''.join(str(e) for e in encoded_word)
         query_list.append(hashed_word)
 
-    instances = Words.objects.filter(hashed_word__in=query_list,word_length__gt=2).order_by('word_length','word').values_list('word',flat=True)
+    instances = Words.objects.filter(hashed_word__in=query_list,word_length__gt=2).order_by('word_length',Lower('word')).values_list('word',flat=True)
 
     if instances:
         for word in instances:
-            word.strip().upper()
+            word = word.strip().upper()
 
             if word not in word_list:
                 word_list.append(word)
