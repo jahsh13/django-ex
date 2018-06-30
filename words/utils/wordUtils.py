@@ -47,7 +47,6 @@ def get_word_list(letters):
         for word in instances:
             word.strip().upper()
 
-
             if word not in word_list:
                 word_list.append(word)
 
